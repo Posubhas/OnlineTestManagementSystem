@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Test {
 	@Id
 	@GeneratedValue
-private BigInteger testId;
+private int testId;
 private String testTitle;
 private LocalTime testDuration;
 @OneToMany(mappedBy="test",cascade=CascadeType.ALL)
@@ -33,7 +33,7 @@ public Test() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Test(BigInteger testId, String testTitle, LocalTime testDuration, Set<Question> testQuestions,
+public Test(int testId, String testTitle, LocalTime testDuration, Set<Question> testQuestions,
 		BigDecimal testTotalMarks, BigDecimal testMarksScored, Question currentQuestion, LocalDateTime startTime,
 		LocalDateTime endTime) {
 	super();
@@ -53,10 +53,10 @@ public String toString() {
 			+ testQuestions + ", testTotalMarks=" + testTotalMarks + ", testMarksScored=" + testMarksScored
 			+ ", currentQuestion=" + currentQuestion + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 }
-public BigInteger getTestId() {
+public int getTestId() {
 	return testId;
 }
-public void setTestId(BigInteger testId) {
+public void setTestId(int testId) {
 	this.testId = testId;
 }
 public String getTestTitle() {

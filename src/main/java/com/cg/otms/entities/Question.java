@@ -14,7 +14,7 @@ import org.hibernate.mapping.Array;
 public class Question {
 	@Id
 	@GeneratedValue
-private BigInteger questionId;
+private int questionId;
 private Array questionOptions;
 private String questionTitle;
 private Integer questionAnswer;
@@ -25,7 +25,7 @@ public Question() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Question(BigInteger questionId, Array questionOptions, String questionTitle, Integer questionAnswer,
+public Question(int questionId, Array questionOptions, String questionTitle, Integer questionAnswer,
 		BigDecimal questionMarks, Integer chosenAnswer, BigDecimal marksScored) {
 	super();
 	this.questionId = questionId;
@@ -42,10 +42,10 @@ public String toString() {
 			+ questionTitle + ", questionAnswer=" + questionAnswer + ", questionMarks=" + questionMarks
 			+ ", chosenAnswer=" + chosenAnswer + ", marksScored=" + marksScored + "]";
 }
-public BigInteger getQuestionId() {
+public int getQuestionId() {
 	return questionId;
 }
-public void setQuestionId(BigInteger questionId) {
+public void setQuestionId(int questionId) {
 	this.questionId = questionId;
 }
 public Array getQuestionOptions() {
