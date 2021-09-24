@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: studentrest
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: subha
+Implementation-Vendor-Id: com.cg.otms
+Build-Jdk: 1.8.0_301
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/OnlineTestManagementSystem1
+Created-By: Maven Integration for Eclipse
+
