@@ -2,11 +2,18 @@ package com.cg.otms.controller;
 
 import java.util.List;
 
+import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.cg.otms.entities.Question;
 import com.cg.otms.service.QuestionService;
@@ -19,19 +26,16 @@ public class QuestionController {
 	public List<Question> getallQuestions() {
 		return questionService.findAllQuestions();
 	}
-
-	@PutMapping("/add")
+@PutMapping("/add")
 	public List<Question> addQuestion() {
-		return questionService.addQuestion();
-	}
-
-	@PutMapping("/update")
-	public List<Question> updateQuestion(@RequestBody Question question) {
-		return questionService.updateQuestion(question);
-	}
-
-	@DeleteMapping("/delete")
-	public List<Question> deleteQuestion(@RequestBody Question question) {
-		return questionService.deleteQuestion(question);
-	}
+	return questionService.addQuestion(); 
+}
+@PutMapping("/update")
+public List<Question> updateQuestion(@RequestBody Question question){
+	return questionService.updateQuestion(question);	
+}
+@DeleteMapping("/delete")
+public List<Question> deleteQuestion(@RequestBody Question question){
+	return questionService.deleteQuestion(question);
+}
 }
