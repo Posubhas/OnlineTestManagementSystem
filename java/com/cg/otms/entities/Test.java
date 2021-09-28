@@ -1,8 +1,6 @@
 package com.cg.otms.entities;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
 import java.util.Set;
 
@@ -22,36 +20,26 @@ import javax.persistence.TemporalType;
 public class Test {
 	@Id
 	@GeneratedValue
-	@Column(name = "Date_on")
-
-	@Temporal(TemporalType.DATE)
-
-	private Date subscribedOn;
-	@Column(name = "Time_on")
-
-	@Temporal(TemporalType.TIMESTAMP)
-
-	private Date Time_On;
 	private int testId;
 	private String testTitle;
-	private LocalTime testDuration;
+	private double testDuration;
 	@OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
 	private Set<Question> testQuestions;
 	private BigDecimal testTotalMarks;
 	private BigDecimal testMarksScored;
-	// private Question currentQuestion;
-	private LocalDateTime startTime;
-	private LocalDateTime endTime;
+	@Column(name = "Start_time")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date startTime;
+	@Column(name = "end_Time")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date endTime;
 
-	@Override
-	public String toString() {
-		return "Test [testId=" + testId + ", testTitle=" + testTitle + ", testDuration=" + testDuration
-				+ ", testQuestions=" + testQuestions + ", testTotalMarks=" + testTotalMarks + ", testMarksScored="
-				+ testMarksScored + ", startTime=" + startTime + ", endTime=" + endTime + "]";
+	public Test() {
+		super();
 	}
 
-	public Test(int testId, String testTitle, LocalTime testDuration, Set<Question> testQuestions,
-			BigDecimal testTotalMarks, BigDecimal testMarksScored, LocalDateTime startTime, LocalDateTime endTime) {
+	public Test(int testId, String testTitle, double testDuration, Set<Question> testQuestions,
+			BigDecimal testTotalMarks, BigDecimal testMarksScored, Date startTime, Date endTime) {
 		super();
 		this.testId = testId;
 		this.testTitle = testTitle;
@@ -63,9 +51,11 @@ public class Test {
 		this.endTime = endTime;
 	}
 
-	public Test() {
-		super();
-		// TODO Auto-generated constructor stub
+	@Override
+	public String toString() {
+		return "Test [testId=" + testId + ", testTitle=" + testTitle + ", testDuration=" + testDuration
+				+ ", testQuestions=" + testQuestions + ", testTotalMarks=" + testTotalMarks + ", testMarksScored="
+				+ testMarksScored + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
 
 	public int getTestId() {
@@ -84,11 +74,11 @@ public class Test {
 		this.testTitle = testTitle;
 	}
 
-	public LocalTime getTestDuration() {
+	public double getTestDuration() {
 		return testDuration;
 	}
 
-	public void setTestDuration(LocalTime testDuration) {
+	public void setTestDuration(double testDuration) {
 		this.testDuration = testDuration;
 	}
 
@@ -116,26 +106,22 @@ public class Test {
 		this.testMarksScored = testMarksScored;
 	}
 
-	public LocalDateTime getStartTime() {
+	public Date getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalDateTime getEndTime() {
+	public Date getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDateTime endTime) {
+	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
 
-	// public int getQuestionId() {
-	// TODO Auto-generated method stub
-	// return 0;
-	// }
 	public void update(Test test) {
 		this.testTitle = test.getTestTitle();
 		this.testDuration = test.getTestDuration();
@@ -144,8 +130,6 @@ public class Test {
 		this.testMarksScored = test.getTestMarksScored();
 		this.startTime = test.getStartTime();
 		this.endTime = test.getEndTime();
-
-		// TODO Auto-generated method stub
 
 	}
 

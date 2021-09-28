@@ -5,12 +5,11 @@ import java.util.List;
 import com.cg.otms.entities.Question;
 
 public interface QuestionService {
-	List<Question> findAllQuestions();
+	public List<Question> findAllQuestions();
 
-	List<Question> addQuestion();
+	public Question addQuestion(Question question);
 
-	List<Question> updateQuestion(Question question);
+	public Question updateQuestion(Question question);
 
-	List<Question> deleteQuestion(Question question);
-
+	public Question deleteQuestion(int id);
 }

@@ -1,5 +1,6 @@
 package com.cg.otms.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -13,7 +14,7 @@ public class QuestionOptions {
 	private String option2;
 	private String option3;
 	private String option4;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "options")
 	private Question question;
 

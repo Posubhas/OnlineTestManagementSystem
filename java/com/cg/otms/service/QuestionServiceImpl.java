@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.cg.otms.dao.QuestionDao;
 import com.cg.otms.entities.Question;
+import com.cg.otms.exception.QuestionNotFoundException;
 
 @Service
-public class QuestionServiceImpl {
+public class QuestionServiceImpl implements QuestionService {
 	@Autowired
 	private QuestionDao qDao;
 
@@ -34,9 +35,15 @@ public class QuestionServiceImpl {
 		return qDao.save(updatedQuestion);
 	}
 
-	public String deleteQuestion(Question question) {
-		qDao.deleteById(question.getQuestionId());
-		return "Question Deleted:" + question.getQuestionId();
+	@Override
+	public Question deleteQuestion(int id) {
+		Optional<Question> op = qDao.findById(id);
+		if (!op.isPresent()) {
+			throw new QuestionNotFoundException("No question found for id: " + id);
+		}
+		Question deletedQuestion = op.get();
+		qDao.deleteById(id);
+		return deletedQuestion;
 	}
 
 }

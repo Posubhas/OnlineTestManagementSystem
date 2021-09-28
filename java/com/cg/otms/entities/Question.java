@@ -22,7 +22,7 @@ public class Question {
 	private BigDecimal questionMarks;
 	private int chosenAnswer;
 	private BigDecimal marksScored;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "test_h2")
 	private Test test;
 

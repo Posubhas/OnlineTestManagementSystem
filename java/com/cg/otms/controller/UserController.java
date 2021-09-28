@@ -2,6 +2,7 @@ package com.cg.otms.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +24,20 @@ public class UserController {
 	@Autowired
 	private UserServiceImpl uService;
 
+	@GetMapping("/success")
+	public String success() {
+		System.out.println("logging in");
+		return "Successfully signed in";
+	}
+
+	@GetMapping("/logoutsuccess")
+	public String appLogout() {
+		System.out.println("logging out");
+		return "Successfully logged out";
+	}
+
 	@PutMapping("/assignTest/{userId}/{testId}")
 	public User assignTest(@PathVariable int userId, @PathVariable int testId) {
 		return uService.assignTest(userId, testId);
 	}
-
 }
