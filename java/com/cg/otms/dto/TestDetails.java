@@ -1,34 +1,16 @@
-package com.cg.otms.entities;
+package com.cg.otms.dto;
 
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import com.cg.otms.entities.Question;
 
-@Entity
-@Table(name = "test_hib1")
-
-public class Test {
-	@Id
-	@GeneratedValue
+public class TestDetails {
 	private int testId;
 	private String testTitle;
 	private double testDuration;
-	@OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
 	private Set<Question> testQuestions;
-	@Column(name = "Start_time")
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date startTime;
-	@Column(name = "end_Time")
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date endTime;
 
 	public int getTestId() {
@@ -81,11 +63,11 @@ public class Test {
 
 	@Override
 	public String toString() {
-		return "Test [testId=" + testId + ", testTitle=" + testTitle + ", testDuration=" + testDuration
+		return "TestDetails [testId=" + testId + ", testTitle=" + testTitle + ", testDuration=" + testDuration
 				+ ", testQuestions=" + testQuestions + ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
 
-	public Test(int testId, String testTitle, double testDuration, Set<Question> testQuestions, Date startTime,
+	public TestDetails(int testId, String testTitle, double testDuration, Set<Question> testQuestions, Date startTime,
 			Date endTime) {
 		super();
 		this.testId = testId;
@@ -96,18 +78,7 @@ public class Test {
 		this.endTime = endTime;
 	}
 
-	public Test() {
+	public TestDetails() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-	public void update(Test test) {
-		this.testTitle = test.getTestTitle();
-		this.testDuration = test.getTestDuration();
-		this.testQuestions = test.getTestQuestions();
-		this.startTime = test.getStartTime();
-		this.endTime = test.getEndTime();
-
-	}
-
 }

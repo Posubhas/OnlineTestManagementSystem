@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.otms.entities.Test;
 import com.cg.otms.service.TestService;
+import com.cg.otms.util.TestUtil;
 
 @RestController
 @RequestMapping("/testcontroller")
@@ -20,6 +21,9 @@ import com.cg.otms.service.TestService;
 public class TestController {
 	@Autowired
 	TestService testService;
+
+	@Autowired
+	private TestUtil testUtil;
 
 	@PostMapping("/addtest")
 	public Test newTest(@RequestBody Test test) {

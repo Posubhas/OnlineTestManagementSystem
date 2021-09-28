@@ -31,6 +31,7 @@ public class QuestionController {
 
 	@PutMapping("/add")
 	public Question addQuestion(@RequestBody Question question) {
+		System.out.println(question);
 		return questionService.addQuestion(question);
 	}
 

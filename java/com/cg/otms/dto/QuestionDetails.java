@@ -1,48 +1,35 @@
-package com.cg.otms.entities;
+package com.cg.otms.dto;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import java.util.Set;
 
-@Entity
+import com.cg.otms.entities.Question;
+import com.cg.otms.entities.QuestionOptions;
 
-public class Question {
-	@Id
-	@GeneratedValue
+public class QuestionDetails {
 	private int questionId;
-	@OneToOne(mappedBy = "question", cascade = CascadeType.MERGE)
 	private QuestionOptions questionOptions;
 	private String questionTitle;
 	private Integer questionAnswer;
 	private int chosenAnswer;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "test_h2")
-	private Test test;
 
-	public Question() {
+	public QuestionDetails() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Question(int questionId, QuestionOptions questionOptions, String questionTitle, Integer questionAnswer,
-			int chosenAnswer, Test test) {
+	public QuestionDetails(int questionId, QuestionOptions questionOptions, String questionTitle,
+			Integer questionAnswer, int chosenAnswer) {
 		super();
 		this.questionId = questionId;
 		this.questionOptions = questionOptions;
 		this.questionTitle = questionTitle;
 		this.questionAnswer = questionAnswer;
 		this.chosenAnswer = chosenAnswer;
-		this.test = test;
 	}
 
 	@Override
 	public String toString() {
-		return "Question [questionId=" + questionId + ", questionOptions=" + questionOptions + ", questionTitle="
-				+ questionTitle + ", questionAnswer=" + questionAnswer + ", chosenAnswer=" + chosenAnswer + ", test="
-				+ test + "]";
+		return "QuestionDetails [questionId=" + questionId + ", questionOptions=" + questionOptions + ", questionTitle="
+				+ questionTitle + ", questionAnswer=" + questionAnswer + ", chosenAnswer=" + chosenAnswer + "]";
 	}
 
 	public int getQuestionId() {
@@ -84,13 +71,4 @@ public class Question {
 	public void setChosenAnswer(int chosenAnswer) {
 		this.chosenAnswer = chosenAnswer;
 	}
-
-	public Test getTest() {
-		return test;
-	}
-
-	public void setTest(Test test) {
-		this.test = test;
-	}
-
 }
