@@ -1,12 +1,6 @@
 package com.cg.otms.entities;
 
 import java.math.BigDecimal;
-<<<<<<< HEAD
-=======
-import java.math.BigInteger;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
->>>>>>> ac8b7f09c35d4aaeb4816878ef7887f7d767836f
 import java.util.Date;
 import java.util.Set;
 
@@ -15,7 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
