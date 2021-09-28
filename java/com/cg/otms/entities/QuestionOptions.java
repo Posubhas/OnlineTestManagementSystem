@@ -2,20 +2,25 @@ package com.cg.otms.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class QuestionOptions {
 	@Id
+	@GeneratedValue
 	private int questionoptionId;
 	private String option1;
 	private String option2;
 	private String option3;
 	private String option4;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "options")
+	@JsonIgnore
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	@JoinColumn(name = "questionId")
 	private Question question;
 
 	public QuestionOptions() {

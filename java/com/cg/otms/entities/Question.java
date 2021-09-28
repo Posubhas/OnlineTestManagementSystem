@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 
@@ -13,12 +16,13 @@ public class Question {
 	@Id
 	@GeneratedValue
 	private int questionId;
-	@OneToOne(mappedBy = "question", cascade = CascadeType.MERGE)
+	@OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
 	private QuestionOptions questionOptions;
 	private String questionTitle;
 	private Integer questionAnswer;
 	private int chosenAnswer;
-	@OneToOne(cascade = CascadeType.ALL)
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "test_h2")
 	private Test test;
 
