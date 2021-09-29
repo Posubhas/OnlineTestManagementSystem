@@ -21,7 +21,7 @@ public class Test {
 	@GeneratedValue
 	private int testId;
 	private String testTitle;
-	@Column(name="duration_test")
+	@Column(name = "duration_test")
 	private double testDuration;
 	@OneToMany(mappedBy = "test", cascade = CascadeType.ALL)
 	private Set<Question> testQuestions;

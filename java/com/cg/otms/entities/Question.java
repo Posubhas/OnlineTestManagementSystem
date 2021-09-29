@@ -17,18 +17,19 @@ public class Question {
 	@GeneratedValue
 	private int questionId;
 	@OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
+	@JoinColumn(name = "question_options")
 	private QuestionOptions questionOptions;
 	private String questionTitle;
 	private Integer questionAnswer;
 	private int chosenAnswer;
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "test_h2")
+
 	private Test test;
 
 	public Question() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public Question(int questionId, QuestionOptions questionOptions, String questionTitle, Integer questionAnswer,

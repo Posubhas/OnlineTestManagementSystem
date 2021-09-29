@@ -4,7 +4,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -19,8 +18,8 @@ public class QuestionOptions {
 	private String option3;
 	private String option4;
 	@JsonIgnore
-	@ManyToOne(cascade=CascadeType.PERSIST)
-	@JoinColumn(name = "questionId")
+	@ManyToOne(cascade = CascadeType.PERSIST)
+
 	private Question question;
 
 	public QuestionOptions() {

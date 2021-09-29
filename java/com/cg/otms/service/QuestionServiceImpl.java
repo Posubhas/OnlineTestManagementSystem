@@ -1,6 +1,5 @@
 package com.cg.otms.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +13,6 @@ import com.cg.otms.exception.QuestionNotFoundException;
 public class QuestionServiceImpl implements QuestionService {
 	@Autowired
 	private QuestionDao qDao;
-
-	public List<Question> findAllQuestions() {
-		List<Question> list = qDao.findAll();
-		return list;
-	}
 
 	public Question addQuestion(Question question) {
 		return qDao.save(question);

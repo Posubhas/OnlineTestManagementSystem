@@ -1,8 +1,5 @@
 package com.cg.otms.dto;
 
-import java.util.Set;
-
-import com.cg.otms.entities.Question;
 import com.cg.otms.entities.QuestionOptions;
 
 public class QuestionDetails {
