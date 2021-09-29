@@ -1,5 +1,6 @@
 package com.cg.otms.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,8 +22,11 @@ public class TestController {
 	@Autowired
 	TestService testService;
 
+	private Logger logger=Logger.getLogger(TestController.class);
+	
 	@PostMapping("/addtest")
 	public Test newTest(@RequestBody Test test) {
+		logger.info("test added");
 		return testService.addTest(test);
 	}
 

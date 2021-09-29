@@ -35,7 +35,8 @@ public class CentralizedExceptionHandler {
 	@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
 	@ExceptionHandler(Exception.class)
 	public String handleError(Exception e) {
-		e.printStackTrace();
+		
 		return e.getMessage();
 	}
+	
 }

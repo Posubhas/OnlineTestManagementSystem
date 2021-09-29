@@ -12,20 +12,31 @@ public class User {
 	@Id
 	private int userId;
 	private String UserName;
+	private String userPassword;
+	private String userRole;
+
 	@OneToOne
 	@JoinColumn(name = "user_h1")
 	private Test userTest;
-	private Boolean isAdmin;
-	private String userPassword;
 
 	public User() {
 		super();
+
+	}
+
+	public User(int userId, String userName, String userPassword, String userRole, Test userTest) {
+		super();
+		this.userId = userId;
+		UserName = userName;
+		this.userPassword = userPassword;
+		this.userRole = userRole;
+		this.userTest = userTest;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", UserName=" + UserName + ", userTest=" + userTest + ", Admin=" + isAdmin
-				+ ", userPassword=" + userPassword + "]";
+		return "User [userId=" + userId + ", UserName=" + UserName + ", userPassword=" + userPassword + ", userRole="
+				+ userRole + ", userTest=" + userTest + "]";
 	}
 
 	public int getUserId() {
@@ -44,22 +55,6 @@ public class User {
 		UserName = userName;
 	}
 
-	public Test getUserTest() {
-		return userTest;
-	}
-
-	public void setUserTest(Test userTest) {
-		this.userTest = userTest;
-	}
-
-	public Boolean getAdmin() {
-		return isAdmin;
-	}
-
-	public void setAdmin(Boolean admin) {
-		isAdmin = admin;
-	}
-
 	public String getUserPassword() {
 		return userPassword;
 	}
@@ -68,13 +63,20 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
-	public User(int userId, String userName, Test userTest, Boolean admin, String userPassword) {
-		super();
-		this.userId = userId;
-		this.UserName = userName;
+	public String getUserRole() {
+		return userRole;
+	}
+
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
+
+	public Test getUserTest() {
+		return userTest;
+	}
+
+	public void setUserTest(Test userTest) {
 		this.userTest = userTest;
-		this.isAdmin = admin;
-		this.userPassword = userPassword;
 	}
 
 }
